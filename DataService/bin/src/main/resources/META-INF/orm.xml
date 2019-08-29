@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+	<description>JPA XML for loginportal</description>
+	<package>com.loginportal.data.model</package>
+	<entity class="com.loginportal.data.model.User" name="User">
+		<table name="Register" />
+		<attributes>
+			<id name="userID">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="emailID">
+				<column name="emailid" />
+			</basic>
+			<basic name="userRole">
+				<column name="userRole" />
+			</basic>
+			<basic name="firstName">
+				<column name="firstName" />
+			</basic>
+			<basic name="lastName">
+				<column name="lastName" />
+			</basic>
+			<basic name="phoneNo">
+				<column name="phoneNo" />
+			</basic>
+			<basic name="accountCreationTime">
+				<column name="accountCreationTime" />
+			</basic>
+			<basic name="accountStatus">
+				<column name="accountStatus" />
+			</basic>
+			<basic name="gender">
+				<column name="gender" />
+			</basic>
+			<basic name="maritalStatus">
+				<column name="maritalStatus" />
+			</basic>
+			<basic name="profession">
+				<column name="profession" />
+			</basic>
+			<basic name="dateOfBirth">
+				<column name="dateOfBirth" />
+			</basic>
+			<one-to-one name="passwordHistory" fetch="EAGER">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-one>
+			<one-to-one name="securityAns" fetch="EAGER">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-one>
+		</attributes>
+	</entity>
+
+	<entity class="com.loginportal.data.model.PasswordHistory"
+		name="PasswordHistory">
+		<table name="PasswordHistory" />
+		<attributes>
+			<id name="passId">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="pwd1">
+				<column name="password1" />
+			</basic>
+			<basic name="salt1">
+				<column name="salt1" />
+			</basic>
+			<basic name="pwd2">
+				<column name="password2" />
+			</basic>
+			<basic name="salt2">
+				<column name="salt2" />
+			</basic>
+			<basic name="pwd3">
+				<column name="password3" />
+			</basic>
+			<basic name="salt3">
+				<column name="salt3" />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="com.loginportal.data.model.SecurityAnswer"
+		name="SecurityAnswer">
+		<table name="securityAns" />
+		<attributes>
+			<id name="secId">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="securityQueID1">
+				<column name="securityQueID1" />
+			</basic>
+			<basic name="securityQueID2">
+				<column name="securityQueID2" />
+			</basic>
+			<basic name="securityAnsID1">
+				<column name="securityAnsID1" />
+			</basic>
+			<basic name="securityAnsID2">
+				<column name="securityAnsID2" />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="com.loginportal.data.model.SecurityQuestion"
+		name="SecurityQuestion">
+		<table name="securityQuestion" />
+		<attributes>
+			<id name="questionID">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="question">
+				<column name="question" />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="com.loginportal.data.model.Review" name="Review">
+		<table name="review" />
+		<attributes>
+			<id name="reviewID">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="userID">
+				<column name="userID" />
+			</basic>
+			<basic name="firstName">
+				<column name="firstName" />
+			</basic>
+			<basic name="review">
+				<column name="review" />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="com.loginportal.data.model.ActiveUser"
+		name="ActiveUser">
+		<table name="ActiveUser" />
+		<attributes>
+			<id name="activeUserID">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="userID">
+				<column name="userID" />
+			</basic>
+			<basic name="emailID">
+				<column name="emailID" />
+			</basic>
+			<basic name="userAgent">
+				<column name="userAgent" />
+			</basic>
+			<basic name="ipAddress">
+				<column name="ipAddress" />
+			</basic>
+			<basic name="location">
+				<column name="location" />
+			</basic>
+			<basic name="location">
+				<column name="location" />
+			</basic>
+			<basic name="loggedInTime">
+				<column name="loggedInTime" />
+			</basic>
+		</attributes>
+	</entity>
+	
+	<entity class="com.loginportal.data.model.Token"
+		name="Token">
+		<table name="Token" />
+		<attributes>
+			<id name="tokenID">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="userID">
+				<column name="userID" />
+			</basic>
+			<basic name="token">
+				<column name="token" />
+			</basic>
+			<basic name="createdDate">
+				<column name="createdDate" />
+			</basic>
+			<basic name="tokenType">
+				<column name="tokenType" />
+			</basic>
+		</attributes>
+	</entity>
+	
+	<entity class="com.loginportal.data.model.LoginAttempts"
+		name="LoginAttempts">
+		<table name="LoginAttempts" />
+		<attributes>
+			<id name="attemptId">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="numberOfAttempts">
+				<column name="numberOfAttempts" />
+			</basic>
+			<basic name="lastAttempt">
+				<column name="lastAttempt" />
+			</basic>
+			<basic name="blocked">
+				<column name="blocked" />
+			</basic>
+			<basic name="userID">
+				<column name="userID" />
+			</basic>
+		</attributes>
+	</entity>
+	
+	<entity class="com.loginportal.data.model.Deactivate"
+		name="Deactivate">
+		<table name="Deactivate" />
+		<attributes>
+			<id name="deactivateId">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="userID">
+				<column name="userID" />
+			</basic>
+			<basic name="deactivateTime">
+				<column name="deactivateTime" />
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>
